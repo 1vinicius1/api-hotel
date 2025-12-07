@@ -1,6 +1,8 @@
 package br.ifs.edu.cads.api.hotel.entities;
 
+import br.ifs.edu.cads.api.hotel.dto.EstadoDTO;
 import jakarta.persistence.*;
+import org.springframework.beans.BeanUtils;
 
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +31,10 @@ public class Estado {
         this.cidades = cidades;
         this.nome = nome;
         this.sigla = sigla;
+    }
+
+    public Estado (EstadoDTO estadoDTO) {
+        BeanUtils.copyProperties(estadoDTO, this);
     }
 
     public String getSigla() {
