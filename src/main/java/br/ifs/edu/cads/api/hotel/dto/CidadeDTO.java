@@ -11,7 +11,9 @@ public class CidadeDTO {
     private Long id_estado;
 
     public CidadeDTO (Cidade cidade) {
-        BeanUtils.copyProperties(cidade, this);
+        this.idCidade = cidade.getCidadeId();
+        this.nome = cidade.getNome();
+        this.id_estado = cidade.getEstado().getId();
     }
 
     public CidadeDTO(){}

@@ -37,6 +37,14 @@ public class Estado {
         BeanUtils.copyProperties(estadoDTO, this);
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getSigla() {
         return sigla;
     }

@@ -10,16 +10,14 @@ import java.util.Objects;
 @Table
 public class Cidade {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCidade;
     private String nome;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_estado")
     private Estado estado;
-
-    public Cidade (CidadeDTO cidadeDTO){
-        BeanUtils.copyProperties(cidadeDTO, this);
-    }
 
     public Cidade(){}
 
