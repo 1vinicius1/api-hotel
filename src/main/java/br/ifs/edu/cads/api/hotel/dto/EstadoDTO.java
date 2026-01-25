@@ -3,6 +3,8 @@ package br.ifs.edu.cads.api.hotel.dto;
 import br.ifs.edu.cads.api.hotel.entities.Estado;
 import org.springframework.beans.BeanUtils;
 
+import java.util.List;
+
 public class EstadoDTO {
 
     private Long id;
@@ -13,8 +15,10 @@ public class EstadoDTO {
         return id;
     }
 
-    public EstadoDTO(Estado estado){
-        BeanUtils.copyProperties(estado, this);
+    public EstadoDTO(Long id, String sigla, String nome) {
+        this.id = id;
+        this.sigla = sigla;
+        this.nome = nome;
     }
 
     public EstadoDTO(){}
@@ -38,4 +42,5 @@ public class EstadoDTO {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
 }

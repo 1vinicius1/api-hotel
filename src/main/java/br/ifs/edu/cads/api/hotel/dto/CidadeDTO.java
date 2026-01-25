@@ -1,7 +1,6 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
 import br.ifs.edu.cads.api.hotel.entities.Cidade;
-import org.springframework.beans.BeanUtils;
 
 public class CidadeDTO {
 
