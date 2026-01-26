@@ -79,7 +79,6 @@ public class Comodidade {
                 "idComodidade=" + idComodidade +
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
-                ", categoriasQuarto=" + categoriasQuarto +
                 '}';
     }
 }

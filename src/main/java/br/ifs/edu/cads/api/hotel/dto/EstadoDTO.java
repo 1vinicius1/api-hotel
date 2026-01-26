@@ -15,10 +15,10 @@ public class EstadoDTO {
         return id;
     }
 
-    public EstadoDTO(Long id, String sigla, String nome) {
-        this.id = id;
-        this.sigla = sigla;
-        this.nome = nome;
+    public EstadoDTO(Estado estado) {
+        this.id = estado.getId();
+        this.sigla = estado.getSigla();
+        this.nome = estado.getNome();
     }
 
     public EstadoDTO(){}

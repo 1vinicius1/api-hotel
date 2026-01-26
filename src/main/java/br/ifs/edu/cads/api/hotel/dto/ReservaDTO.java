@@ -22,16 +22,15 @@ public class ReservaDTO {
 
     public ReservaDTO(){}
 
-    public ReservaDTO(Long idReserva, Date dataInicio, Date dataFim, Date dataCheckin, Date dataCheckout, Double valorReserva,
-                      FormaPagamento formaPagamento, StatusReserva statusReserva) {
-        this.idReserva = idReserva;
-        this.dataInicio = dataInicio;
-        this.dataFim = dataFim;
-        this.dataCheckin = dataCheckin;
-        this.dataCheckout = dataCheckout;
-        this.valorReserva = valorReserva;
-        this.formaPagamento = formaPagamento;
-        this.statusReserva = statusReserva;
+    public ReservaDTO(Reserva reserva) {
+        this.idReserva = reserva.getIdReserva();
+        this.dataInicio = reserva.getDataInicio();
+        this.dataFim = reserva.getDataFim();
+        this.dataCheckin = reserva.getDataCheckin();
+        this.dataCheckout = reserva.getDataCheckout();
+        this.valorReserva = reserva.getValorReserva();
+        this.formaPagamento = reserva.getFormaPagamento();
+        this.statusReserva = reserva.getStatusReserva();
     }
 
     public Long getIdReserva() {

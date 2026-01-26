@@ -1,29 +1,32 @@
 package br.ifs.edu.cads.api.hotel.dto;
+import br.ifs.edu.cads.api.hotel.entities.Funcionario;
 import br.ifs.edu.cads.api.hotel.entities.enums.Cargo;
 
 
 public class FuncionarioDTO {
 
-    private String idFuncionario;
+    private Long idFuncionario;
 
     private String nome;
     private String cpf;
     private Cargo cargo;
+    private Long idUsuario;
 
     public FuncionarioDTO(){}
 
-    public FuncionarioDTO(String idFuncionario, String nome, String cpf, Cargo cargo) {
-        this.idFuncionario = idFuncionario;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.cargo = cargo;
+    public FuncionarioDTO(Funcionario funcionario) {
+        this.idFuncionario = funcionario.getIdFuncionario();
+        this.nome = funcionario.getNome();
+        this.cpf = funcionario.getCpf();
+        this.cargo = funcionario.getCargo();
+        this.idUsuario = funcionario.getIdFuncionario();
     }
 
-    public String getIdFuncionario() {
+    public Long getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(String idFuncionario) {
+    public void setIdFuncionario(Long idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
@@ -49,5 +52,13 @@ public class FuncionarioDTO {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Long getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Long idUsuario) {
+        this.idUsuario = idUsuario;
     }
 }

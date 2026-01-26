@@ -21,6 +21,8 @@ public class CategoriaQuarto {
     private List<Quarto> quartos = new ArrayList<>();
 
     private Double valorDiaria;
+
+    @Enumerated(EnumType.STRING)
     private Posicao posicao;
 
     @OneToMany(mappedBy = "categoriaQuarto")
@@ -119,15 +121,16 @@ public class CategoriaQuarto {
 
     @Override
     public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        CategoriaQuarto that = (CategoriaQuarto) o;
-        return Objects.equals(idCategoriaQuarto, that.idCategoriaQuarto) && Objects.equals(nome, that.nome) && Objects.equals(descricao, that.descricao) && Objects.equals(maxHospedes, that.maxHospedes) && Objects.equals(quartos, that.quartos) && Objects.equals(valorDiaria, that.valorDiaria) && posicao == that.posicao && Objects.equals(reservas, that.reservas) && Objects.equals(comodidades, that.comodidades);
+        if (this == o) return true;
+        if (!(o instanceof CategoriaQuarto other)) return false;
+        return idCategoriaQuarto != null && idCategoriaQuarto.equals(other.idCategoriaQuarto);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idCategoriaQuarto, nome, descricao, maxHospedes, quartos, valorDiaria, posicao, reservas, comodidades);
+        return getClass().hashCode();
     }
+
 
     @Override
     public String toString() {
@@ -136,11 +139,8 @@ public class CategoriaQuarto {
                 ", nome='" + nome + '\'' +
                 ", descricao='" + descricao + '\'' +
                 ", maxHospedes=" + maxHospedes +
-                ", quartos=" + quartos +
                 ", valorDiaria=" + valorDiaria +
                 ", posicao=" + posicao +
-                ", reservas=" + reservas +
-                ", comodidades=" + comodidades +
                 '}';
     }
 }

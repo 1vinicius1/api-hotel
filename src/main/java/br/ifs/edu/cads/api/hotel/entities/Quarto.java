@@ -25,6 +25,7 @@ public class Quarto {
     @OneToMany(mappedBy = "quarto")
     private List<Reserva> reservas = new ArrayList<>();
 
+    @Enumerated(EnumType.STRING)
     private StatusQuarto statusQuarto;
 
     public Quarto(){}

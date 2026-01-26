@@ -14,12 +14,12 @@ public class UsuarioDTO {
 
     public UsuarioDTO(){}
 
-    public UsuarioDTO(Long idUsuario, String email, String senha, PapelUsuario papel, boolean ativo) {
-        this.idUsuario = idUsuario;
-        this.email = email;
-        this.senha = senha;
-        this.papel = papel;
-        this.ativo = ativo;
+    public UsuarioDTO(Usuario usuario) {
+        this.idUsuario = usuario.getIdUsuario();
+        this.email = usuario.getEmail();
+        this.senha = usuario.getSenha();
+        this.papel = usuario.getPapel();
+        this.ativo = usuario.isAtivo();
     }
 
     public Long getIdUsuario() {

@@ -13,10 +13,12 @@ public class Funcionario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private String idFuncionario;
+    private Long idFuncionario;
 
     private String nome;
     private String cpf;
+
+    @Enumerated(EnumType.STRING)
     private Cargo cargo;
 
     @OneToOne
@@ -28,7 +30,7 @@ public class Funcionario {
 
     public Funcionario(){}
 
-    public Funcionario(String idFuncionario, String nome, String cpf, Cargo cargo, Usuario usuario, List<Reserva> reservas) {
+    public Funcionario(Long idFuncionario, String nome, String cpf, Cargo cargo, Usuario usuario, List<Reserva> reservas) {
         this.idFuncionario = idFuncionario;
         this.nome = nome;
         this.cpf = cpf;
@@ -45,11 +47,11 @@ public class Funcionario {
         this.nome = nome;
     }
 
-    public String getIdFuncionario() {
+    public Long getIdFuncionario() {
         return idFuncionario;
     }
 
-    public void setIdFuncionario(String idFuncionario) {
+    public void setIdFuncionario(Long idFuncionario) {
         this.idFuncionario = idFuncionario;
     }
 
@@ -87,25 +89,26 @@ public class Funcionario {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Funcionario that = (Funcionario) o;
-        return Objects.equals(idFuncionario, that.idFuncionario) && Objects.equals(nome, that.nome) && Objects.equals(cpf, that.cpf) && cargo == that.cargo && Objects.equals(usuario, that.usuario) && Objects.equals(reservas, that.reservas);
+        return idFuncionario != null && idFuncionario.equals(that.idFuncionario);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(idFuncionario, nome, cpf, cargo, usuario, reservas);
+        return Objects.hash(idFuncionario);
     }
 
     @Override
     public String toString() {
         return "Funcionario{" +
-                "idFuncionario='" + idFuncionario + '\'' +
+                "idFuncionario=" + idFuncionario +
                 ", nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
                 ", cargo=" + cargo +
-                ", usuario=" + usuario +
-                ", reservas=" + reservas +
                 '}';
     }
+
 }

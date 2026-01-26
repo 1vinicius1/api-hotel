@@ -1,5 +1,6 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
+import br.ifs.edu.cads.api.hotel.entities.CategoriaQuarto;
 import br.ifs.edu.cads.api.hotel.entities.enums.Posicao;
 
 
@@ -12,14 +13,16 @@ public class CategoriaQuartoDTO {
     private Double valorDiaria;
     private Posicao posicao;
 
-    public CategoriaQuartoDTO(Long idCategoriaQuarto, String nome, String descricao, Integer maxHospedes, Double valorDiaria, Posicao posicao) {
-        this.idCategoriaQuarto = idCategoriaQuarto;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.maxHospedes = maxHospedes;
-        this.valorDiaria = valorDiaria;
-        this.posicao = posicao;
+    public CategoriaQuartoDTO(CategoriaQuarto categoriaQuarto) {
+        this.idCategoriaQuarto = categoriaQuarto.getIdCategoriaQuarto();
+        this.nome = categoriaQuarto.getNome();
+        this.descricao = categoriaQuarto.getDescricao();
+        this.maxHospedes = categoriaQuarto.getMaxHospedes();
+        this.valorDiaria = categoriaQuarto.getValorDiaria();
+        this.posicao = categoriaQuarto.getPosicao();
     }
+
+    public CategoriaQuartoDTO(){}
 
     public Long getIdCategoriaQuarto() {
         return idCategoriaQuarto;

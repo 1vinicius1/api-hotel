@@ -43,7 +43,11 @@ public class Reserva {
     private Date dataCheckin;
     private Date dataCheckout;
     private Double valorReserva;
+
+    @Enumerated(EnumType.STRING)
     private FormaPagamento formaPagamento;
+
+    @Enumerated(EnumType.STRING)
     private StatusReserva statusReserva;
 
     public Reserva(){}

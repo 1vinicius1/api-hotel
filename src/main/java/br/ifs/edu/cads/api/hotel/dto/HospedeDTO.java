@@ -1,6 +1,8 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
 
+import br.ifs.edu.cads.api.hotel.entities.Hospede;
+
 import java.util.Date;
 
 public class HospedeDTO {
@@ -13,12 +15,12 @@ public class HospedeDTO {
 
     public HospedeDTO(){}
 
-    public HospedeDTO(Long idHospede, String nome, String cpf, Date dataNascimento, String telefone) {
-        this.idHospede = idHospede;
-        this.nome = nome;
-        this.cpf = cpf;
-        this.dataNascimento = dataNascimento;
-        this.telefone = telefone;
+    public HospedeDTO(Hospede hospede) {
+        this.idHospede = hospede.getIdHospede();
+        this.nome = hospede.getNome();
+        this.cpf = hospede.getCpf();
+        this.dataNascimento = hospede.getDataNascimento();
+        this.telefone = hospede.getTelefone();
     }
 
     public Long getIdHospede() {

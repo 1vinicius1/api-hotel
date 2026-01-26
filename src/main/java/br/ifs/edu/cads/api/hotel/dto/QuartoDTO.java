@@ -1,5 +1,6 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
+import br.ifs.edu.cads.api.hotel.entities.Quarto;
 import br.ifs.edu.cads.api.hotel.entities.enums.StatusQuarto;
 
 public class QuartoDTO {
@@ -11,11 +12,11 @@ public class QuartoDTO {
 
     public QuartoDTO(){}
 
-    public QuartoDTO(Long idQuarto, Integer numQuarto, Integer numAndar, StatusQuarto statusQuarto) {
-        this.idQuarto = idQuarto;
-        this.numQuarto = numQuarto;
-        this.numAndar = numAndar;
-        this.statusQuarto = statusQuarto;
+    public QuartoDTO(Quarto quarto) {
+        this.idQuarto = quarto.getIdQuarto();
+        this.numQuarto = quarto.getNumQuarto();
+        this.numAndar = quarto.getNumAndar();
+        this.statusQuarto = quarto.getStatusQuarto();
     }
 
     public Long getIdQuarto() {

@@ -25,7 +25,7 @@ public class CidadeController {
         return ResponseEntity.ok(cidadeDTO);
     }
 
-    @GetMapping("/todas")
+    @GetMapping("/listar-todas")
     public ResponseEntity<List<CidadeDTO>> listarTodos() {
         List<CidadeDTO> cidades = cidadeService.listarTodos();
         return ResponseEntity.ok(cidades);

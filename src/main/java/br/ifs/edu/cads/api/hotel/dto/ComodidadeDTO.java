@@ -1,5 +1,7 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
+import br.ifs.edu.cads.api.hotel.entities.Comodidade;
+
 public class ComodidadeDTO {
 
     private Long idComodidade;
@@ -8,10 +10,10 @@ public class ComodidadeDTO {
 
     public ComodidadeDTO(){}
 
-    public ComodidadeDTO(Long idComodidade, String nome, String descricao) {
-        this.idComodidade = idComodidade;
-        this.nome = nome;
-        this.descricao = descricao;
+    public ComodidadeDTO(Comodidade comodidade) {
+        this.idComodidade = comodidade.getIdComodidade();
+        this.nome = comodidade.getNome();
+        this.descricao = comodidade.getDescricao();
     }
 
     public Long getIdComodidade() {
