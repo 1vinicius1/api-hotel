@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table
@@ -89,14 +88,16 @@ public class Quarto {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Quarto quarto = (Quarto) o;
-        return Objects.equals(idQuarto, quarto.idQuarto) && Objects.equals(numQuarto, quarto.numQuarto) && Objects.equals(numAndar, quarto.numAndar) && Objects.equals(categoria, quarto.categoria) && Objects.equals(reservas, quarto.reservas) && statusQuarto == quarto.statusQuarto;
+        return idQuarto != null && idQuarto.equals(quarto.idQuarto);
     }
+
 
     @Override
     public int hashCode() {
-        return Objects.hash(idQuarto, numQuarto, numAndar, categoria, reservas, statusQuarto);
+        return getClass().hashCode();
     }
 
     @Override
@@ -106,7 +107,6 @@ public class Quarto {
                 ", numQuarto=" + numQuarto +
                 ", numAndar=" + numAndar +
                 ", categoria=" + categoria +
-                ", reservas=" + reservas +
                 ", statusQuarto=" + statusQuarto +
                 '}';
     }

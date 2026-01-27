@@ -9,6 +9,7 @@ public class QuartoDTO {
     private Integer numQuarto;
     private Integer numAndar;
     private StatusQuarto statusQuarto;
+    private Long idCategoriaQuarto;
 
     public QuartoDTO(){}
 
@@ -17,6 +18,7 @@ public class QuartoDTO {
         this.numQuarto = quarto.getNumQuarto();
         this.numAndar = quarto.getNumAndar();
         this.statusQuarto = quarto.getStatusQuarto();
+        this.idCategoriaQuarto = quarto.getCategoria().getIdCategoriaQuarto();
     }
 
     public Long getIdQuarto() {
@@ -49,5 +51,13 @@ public class QuartoDTO {
 
     public void setStatusQuarto(StatusQuarto statusQuarto) {
         this.statusQuarto = statusQuarto;
+    }
+
+    public Long getIdCategoriaQuarto() {
+        return idCategoriaQuarto;
+    }
+
+    public void setIdCategoriaQuarto(Long idCategoriaQuarto) {
+        this.idCategoriaQuarto = idCategoriaQuarto;
     }
 }

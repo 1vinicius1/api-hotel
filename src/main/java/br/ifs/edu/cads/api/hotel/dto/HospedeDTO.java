@@ -12,6 +12,7 @@ public class HospedeDTO {
     private String cpf;
     private Date dataNascimento;
     private String telefone;
+    private Long cidadeId;
 
     public HospedeDTO(){}
 
@@ -21,6 +22,7 @@ public class HospedeDTO {
         this.cpf = hospede.getCpf();
         this.dataNascimento = hospede.getDataNascimento();
         this.telefone = hospede.getTelefone();
+        this.cidadeId = hospede.getCidade().getCidadeId();
     }
 
     public Long getIdHospede() {
@@ -63,4 +65,11 @@ public class HospedeDTO {
         this.telefone = telefone;
     }
 
+    public Long getCidadeId() {
+        return cidadeId;
+    }
+
+    public void setCidadeId(Long cidadeId) {
+        this.cidadeId = cidadeId;
+    }
 }

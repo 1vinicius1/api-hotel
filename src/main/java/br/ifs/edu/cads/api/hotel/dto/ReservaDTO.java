@@ -3,11 +3,10 @@ package br.ifs.edu.cads.api.hotel.dto;
 import br.ifs.edu.cads.api.hotel.entities.Reserva;
 import br.ifs.edu.cads.api.hotel.entities.enums.FormaPagamento;
 import br.ifs.edu.cads.api.hotel.entities.enums.StatusReserva;
-import org.springframework.beans.BeanUtils;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 
 public class ReservaDTO {
 
@@ -19,6 +18,11 @@ public class ReservaDTO {
     private Double valorReserva;
     private FormaPagamento formaPagamento;
     private StatusReserva statusReserva;
+    private List<String> convidados;
+    private Long idCategoriaQuarto;
+    private Long idQuarto;
+    private Long idHospede;
+    private Long idFuncionario;
 
     public ReservaDTO(){}
 
@@ -31,6 +35,11 @@ public class ReservaDTO {
         this.valorReserva = reserva.getValorReserva();
         this.formaPagamento = reserva.getFormaPagamento();
         this.statusReserva = reserva.getStatusReserva();
+        this.idCategoriaQuarto = reserva.getCategoriaQuarto().getIdCategoriaQuarto();
+        this.idQuarto = reserva.getQuarto().getIdQuarto();
+        this.idHospede = reserva.getHospede().getIdHospede();
+        this.idFuncionario = reserva.getFuncionario().getIdFuncionario();
+        this.convidados = reserva.getConvidados();
     }
 
     public Long getIdReserva() {
@@ -95,5 +104,45 @@ public class ReservaDTO {
 
     public void setStatusReserva(StatusReserva statusReserva) {
         this.statusReserva = statusReserva;
+    }
+
+    public Long getIdCategoriaQuarto() {
+        return idCategoriaQuarto;
+    }
+
+    public Long getIdQuarto() {
+        return idQuarto;
+    }
+
+    public Long getIdHospede() {
+        return idHospede;
+    }
+
+    public Long getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdCategoriaQuarto(Long idCategoriaQuarto) {
+        this.idCategoriaQuarto = idCategoriaQuarto;
+    }
+
+    public void setIdQuarto(Long idQuarto) {
+        this.idQuarto = idQuarto;
+    }
+
+    public void setIdHospede(Long idHospede) {
+        this.idHospede = idHospede;
+    }
+
+    public void setIdFuncionario(Long idFuncionario) {
+        this.idFuncionario = idFuncionario;
+    }
+
+    public List<String> getConvidados() {
+        return convidados;
+    }
+
+    public void setConvidados(List<String> convidados) {
+        this.convidados = convidados;
     }
 }

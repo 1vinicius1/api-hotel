@@ -107,14 +107,15 @@ public class Hospede {
 
     @Override
     public boolean equals(Object o) {
+        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Hospede hospede = (Hospede) o;
-        return Objects.equals(idHospede, hospede.idHospede) && Objects.equals(nome, hospede.nome) && Objects.equals(cpf, hospede.cpf) && Objects.equals(dataNascimento, hospede.dataNascimento) && Objects.equals(telefone, hospede.telefone) && Objects.equals(cidade, hospede.cidade) && Objects.equals(usuario, hospede.usuario) && Objects.equals(reserva, hospede.reserva);
+        Hospede that = (Hospede) o;
+        return idHospede != null && idHospede.equals(that.idHospede);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(idHospede, nome, cpf, dataNascimento, telefone, cidade, usuario, reserva);
+        return getClass().hashCode();
     }
 
     @Override
@@ -125,9 +126,7 @@ public class Hospede {
                 ", cpf='" + cpf + '\'' +
                 ", dataNascimento=" + dataNascimento +
                 ", telefone='" + telefone + '\'' +
-                ", cidade=" + cidade +
-                ", usuario=" + usuario +
-                ", reserva=" + reserva +
                 '}';
     }
+
 }
