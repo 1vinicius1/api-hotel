@@ -1,6 +1,7 @@
 package br.ifs.edu.cads.api.hotel.services;
 
 import br.ifs.edu.cads.api.hotel.dto.ReservaDTO;
+import br.ifs.edu.cads.api.hotel.dto.ReservaResumoProjection;
 import br.ifs.edu.cads.api.hotel.entities.*;
 import br.ifs.edu.cads.api.hotel.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -110,12 +111,8 @@ public class ReservaService {
         return toDTO(reserva);
     }
 
-    @Transactional
-    public void deletar(Long id) {
-        Reserva reserva = reservaRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Reserva não encontrada"));
-
-        reservaRepository.delete(reserva);
+    public List<ReservaResumoProjection> buscarResumoPorPeriodo(java.sql.Date inicio, java.sql.Date fim) {
+        return reservaRepository.buscarResumoPorPeriodo(inicio, fim);
     }
 
     public ReservaDTO toDTO(Reserva reserva) {

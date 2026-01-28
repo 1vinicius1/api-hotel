@@ -15,14 +15,17 @@ public class Usuario {
 
     private String email;
     private String senha;
+
+    @Enumerated(EnumType.STRING)
     private PapelUsuario papel;
+
     private boolean ativo;
 
     @OneToOne(mappedBy = "usuario")
     private Funcionario funcionario;
 
     @OneToOne
-    @JoinColumn(name = "hospede_id", nullable = false, unique = true)
+    @JoinColumn(name = "hospede_id", nullable = true)
     private Hospede hospede;
 
     public Usuario(){}

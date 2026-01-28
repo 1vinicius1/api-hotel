@@ -1,10 +1,13 @@
 package br.ifs.edu.cads.api.hotel.controllers;
 
 import br.ifs.edu.cads.api.hotel.dto.ReservaDTO;
+import br.ifs.edu.cads.api.hotel.dto.ReservaResumoProjection;
 import br.ifs.edu.cads.api.hotel.services.ReservaService;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.net.URI;
 import java.util.List;
 
@@ -43,9 +46,15 @@ public class ReservaController {
         return ResponseEntity.ok(reservaAtualizada);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletar(@PathVariable Long id) {
-        reservaService.deletar(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/periodo")
+    public List<ReservaResumoProjection> listarPorPeriodo(
+            @RequestParam("inicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate inicio,
+            @RequestParam("fim") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fim
+    ) {
+        return reservaService.buscarResumoPorPeriodo(
+                java.sql.Date.valueOf(inicio),
+                java.sql.Date.valueOf(fim)
+        );
     }
+
 }

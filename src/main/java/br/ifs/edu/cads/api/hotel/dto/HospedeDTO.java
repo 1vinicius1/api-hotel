@@ -1,6 +1,4 @@
 package br.ifs.edu.cads.api.hotel.dto;
-
-
 import br.ifs.edu.cads.api.hotel.entities.Hospede;
 
 import java.util.Date;

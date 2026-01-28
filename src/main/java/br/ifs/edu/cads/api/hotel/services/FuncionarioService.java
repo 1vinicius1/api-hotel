@@ -27,14 +27,16 @@ public class FuncionarioService {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         Funcionario funcionario = new Funcionario();
-        funcionario.setUsuario(usuario);
         funcionario.setNome(dto.getNome());
         funcionario.setCpf(dto.getCpf());
         funcionario.setCargo(dto.getCargo());
+        funcionario.setUsuario(usuario);
 
         funcionario = funcionarioRepository.save(funcionario);
+
         return new FuncionarioDTO(funcionario);
     }
+
 
     public List<FuncionarioDTO> listarTodos() {
         return funcionarioRepository.findAll()
@@ -71,9 +73,13 @@ public class FuncionarioService {
         Funcionario funcionario = funcionarioRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Funcionário não encontrado"));
 
+        Usuario usuario = funcionario.getUsuario();
+
+        if (usuario != null) {
+            usuario.setFuncionario(null);
+        }
         funcionarioRepository.delete(funcionario);
     }
-
 
     public FuncionarioDTO toDTO(Funcionario funcionario) {
         FuncionarioDTO dto = new FuncionarioDTO();
@@ -81,7 +87,8 @@ public class FuncionarioService {
         dto.setNome(funcionario.getNome());
         dto.setCpf(funcionario.getCpf());
         dto.setCargo(funcionario.getCargo());
-
+        dto.setIdUsuario(funcionario.getUsuario() != null ? funcionario.getUsuario().getIdUsuario() : null);
         return dto;
     }
+
 }

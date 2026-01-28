@@ -19,8 +19,12 @@ public class FuncionarioDTO {
         this.nome = funcionario.getNome();
         this.cpf = funcionario.getCpf();
         this.cargo = funcionario.getCargo();
-        this.idUsuario = funcionario.getIdFuncionario();
+
+        this.idUsuario = (funcionario.getUsuario() != null)
+                ? funcionario.getUsuario().getIdUsuario()
+                : null;
     }
+
 
     public Long getIdFuncionario() {
         return idFuncionario;

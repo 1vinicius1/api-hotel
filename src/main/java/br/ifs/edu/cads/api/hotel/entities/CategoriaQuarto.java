@@ -17,7 +17,7 @@ public class CategoriaQuarto {
     private String descricao;
     private Integer maxHospedes;
 
-    @OneToMany(mappedBy = "categoriaQuarto")
+    @OneToMany(mappedBy = "categoria")
     private List<Quarto> quartos = new ArrayList<>();
 
     private Double valorDiaria;

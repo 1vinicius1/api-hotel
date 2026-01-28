@@ -2,7 +2,6 @@ package br.ifs.edu.cads.api.hotel.dto;
 
 import br.ifs.edu.cads.api.hotel.entities.Usuario;
 import br.ifs.edu.cads.api.hotel.entities.enums.PapelUsuario;
-import org.springframework.beans.BeanUtils;
 
 public class UsuarioDTO {
 
@@ -11,6 +10,7 @@ public class UsuarioDTO {
     private String senha;
     private PapelUsuario papel;
     private boolean ativo;
+    private Long idHospede;
 
     public UsuarioDTO(){}
 
@@ -20,6 +20,10 @@ public class UsuarioDTO {
         this.senha = usuario.getSenha();
         this.papel = usuario.getPapel();
         this.ativo = usuario.isAtivo();
+
+        this.idHospede = (usuario.getHospede() != null)
+                ? usuario.getHospede().getIdHospede()
+                : null;
     }
 
     public Long getIdUsuario() {
@@ -60,5 +64,13 @@ public class UsuarioDTO {
 
     public void setAtivo(boolean ativo) {
         this.ativo = ativo;
+    }
+
+    public Long getIdHospede() {
+        return idHospede;
+    }
+
+    public void setIdHospede(Long idHospede) {
+        this.idHospede = idHospede;
     }
 }

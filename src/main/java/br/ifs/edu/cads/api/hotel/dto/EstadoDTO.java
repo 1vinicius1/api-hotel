@@ -1,9 +1,6 @@
 package br.ifs.edu.cads.api.hotel.dto;
 
 import br.ifs.edu.cads.api.hotel.entities.Estado;
-import org.springframework.beans.BeanUtils;
-
-import java.util.List;
 
 public class EstadoDTO {
 
